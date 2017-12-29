@@ -36,7 +36,7 @@ SEXP initJulia(SEXP DisableGC)
 {
   if (jl_is_initialized())
     return R_NilValue;
-  //const char *s = CHAR(asChar(julia_home));
+  const char *s = CHAR(asChar("C:/Users/RC-Stefan Jovanovic/AppData/Local/Julia-0.5.2/bin"));
   jl_init((char *)s);
 
   jlrunning = 1;
