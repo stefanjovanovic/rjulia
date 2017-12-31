@@ -36,8 +36,7 @@ SEXP initJulia(SEXP DisableGC)
 {
   if (jl_is_initialized())
     return R_NilValue;
-  //jl_init();
-  jl_init_with_image(julia_home_dir, NULL);
+  jl_init();
   
   jlrunning = 1;
   if (jl_exception_occurred())
