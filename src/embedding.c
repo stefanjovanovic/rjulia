@@ -32,11 +32,13 @@ SEXP Julia_is_running()
 //function about init embeded Julia instance
 //julia_home shoud be the directy of julia execute file
 //DisableGC  determine whether the Julia garbage collector is to be enabled or not
+  const char *julia_home_dir = "C:\\Users\\RC-Stefan Jovanovic\\AppData\\Local\\Julia-0.5.2\\bin";
 SEXP initJulia(SEXP DisableGC)
 {
   if (jl_is_initialized())
     return R_NilValue;
-  jl_init();
+  //jl_init();
+  jl_init_with_image(julia_home_dir, NULL); 
   
   jlrunning = 1;
   if (jl_exception_occurred())
